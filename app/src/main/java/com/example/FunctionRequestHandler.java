@@ -16,7 +16,7 @@ public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayPr
     public APIGatewayProxyResponseEvent execute(APIGatewayProxyRequestEvent input) {
         APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
         try {
-            String json = new String(objectMapper.writeValueAsBytes(Collections.singletonMap("message", "Hello, World")));
+            String json = new String(objectMapper.writeValueAsBytes(Collections.singletonMap("message", "Hello, World!")));
             response.setStatusCode(200);
             response.setBody(json);
         } catch (IOException e) {
