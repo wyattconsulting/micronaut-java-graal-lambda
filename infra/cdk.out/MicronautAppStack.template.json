@@ -71,7 +71,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "f30c732d75c138b6e64843d0007e483ef56f233602347b85f83c775d3bb02161.zip"
+     "S3Key": "99f5ea72016efca2276d7dd167a634d160849004e1fd034e7f8ad81f2598ba10.zip"
     },
     "Handler": "com.example.FunctionRequestHandler",
     "MemorySize": 2048,
@@ -93,7 +93,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "MicronautAppStack/micronaut-function/Resource",
-    "aws:asset:path": "asset.f30c732d75c138b6e64843d0007e483ef56f233602347b85f83c775d3bb02161.zip",
+    "aws:asset:path": "asset.99f5ea72016efca2276d7dd167a634d160849004e1fd034e7f8ad81f2598ba10.zip",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
