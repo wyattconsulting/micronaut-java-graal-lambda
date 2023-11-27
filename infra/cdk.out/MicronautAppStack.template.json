@@ -71,7 +71,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "99f5ea72016efca2276d7dd167a634d160849004e1fd034e7f8ad81f2598ba10.zip"
+     "S3Key": "caba15b11d60363459737c6c7d5d06f1daf2062a8c4cbbf4dab3653b31f31ef9.zip"
     },
     "Handler": "com.example.FunctionRequestHandler",
     "MemorySize": 2048,
@@ -93,7 +93,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "MicronautAppStack/micronaut-function/Resource",
-    "aws:asset:path": "asset.99f5ea72016efca2276d7dd167a634d160849004e1fd034e7f8ad81f2598ba10.zip",
+    "aws:asset:path": "asset.caba15b11d60363459737c6c7d5d06f1daf2062a8c4cbbf4dab3653b31f31ef9.zip",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -249,7 +249,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/z2NTYvCQAyGf4v3aVZXYfGoBQ+LoFT2LHEaS+w0I01mZSn+96Xjx+l5yPsm+YTlAqYTvGnh67YIfILhYOhbhzc9DgG7U40wbJJ44yiuPMvbX/LTh3H+xJ76jlU5yt0xdjBUMdAYZO5jYP+Xe9nuTudHVCVTWI1wOod18i3ZGpVciI3CNjYVGYnloxVpTL0nl/sHw4alyQ9eQXmWXbJrstHKKDU/Nr/xFz9mXzCF5eSizEWfxLgjqB78B/QBSP0NAQAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/z2Ny27CQAxFv4X9xIVSqbCESF1UlYqCWCMzMZGbiaeKPSAU8e8ow2N1jnyv7XdYfsB0gmctfN0WgQ8wbA196/Cs+yFgd6gRhq8k3jiKK4/y8qfs+jDOH9hQ37EqR7k6xg6GKgYag8xNDOwvuZft6nS+R1UyhdUIp3NYJ9+SrVHJhdgo/MSmIiOxfLQijan35HJ/a9iwNPnBMyiP8pvsP9loZZSa75vfeMK32SdMYTH5U+aiT2LcEVR33gA0ZWDqDQEAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "MicronautAppStack/CDKMetadata/Default"
