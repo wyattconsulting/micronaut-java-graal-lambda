@@ -1,3 +1,5 @@
+[![Java CI with Gradle](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/gradle.yml/badge.svg)](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/gradle.yml)
+
 ## Micronaut 4.2.0 Documentation
 
 - [User Guide](https://docs.micronaut.io/4.2.0/guide/index.html)
