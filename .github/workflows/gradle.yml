@@ -36,3 +36,7 @@ jobs:
           native-image --version
     - name: Example step using Gradle plugin # https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html
       run: ./gradlew nativeCompile
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Package
+        path: app/build/libs
