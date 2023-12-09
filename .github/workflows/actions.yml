@@ -1,20 +1,46 @@
-name: CDK Deploy
+name: Build & Deploy Lambda
 
-on:
-  push:
-    branches: [ "main" ]
+on: [push]
+
+permissions:
+  contents: read
 
 jobs:
-  aws_cdk:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: graalvm/setup-graalvm@v1
+      with:
+          java-version: '17'
+          distribution: 'graalvm-community'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup
+      run: |
+          echo "GRAALVM_HOME: $GRAALVM_HOME"
+          echo "JAVA_HOME: $JAVA_HOME"
+          java --version
+          native-image --version
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+      with:
+        arguments: :app:buildNativeLambda
+    - name: Test with Gradle
+      uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
+      with:
+        arguments: test
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Lambda
+        path: app/build/libs
+
+  deploy:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Assume Role
-        uses: youyo/awscredswrap@master
-        with:
-          role_arn: ${{ secrets.ROLE_ARN }}
-          duration_seconds: 3600
-          role_session_name: 'awscredswrap@GitHubActions'
 
       - name: cdk synth
         uses: youyo/aws-cdk-github-actions@v2
