@@ -1,4 +1,4 @@
-[![Java CI with Gradle](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/gradle.yml/badge.svg)](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/gradle.yml)
+[![Build & Deploy Lambda](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/actions.yml/badge.svg)](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/actions.yml)
 
 ## Micronaut 4.2.0 Documentation
 
