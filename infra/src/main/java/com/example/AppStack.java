@@ -1,24 +1,23 @@
 package com.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import io.micronaut.aws.cdk.function.MicronautFunction;
-import io.micronaut.aws.cdk.function.MicronautFunctionFile;
 import io.micronaut.starter.application.ApplicationType;
-import io.micronaut.starter.options.BuildTool;
 import software.amazon.awscdk.CfnOutput;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
 import software.amazon.awscdk.services.lambda.Architecture;
+import software.amazon.awscdk.services.lambda.Code;
+import software.amazon.awscdk.services.lambda.Function;
 import software.amazon.awscdk.services.lambda.FunctionUrl;
 import software.amazon.awscdk.services.lambda.FunctionUrlAuthType;
 import software.amazon.awscdk.services.lambda.FunctionUrlOptions;
-import software.amazon.awscdk.services.lambda.Code;
-import software.amazon.awscdk.services.lambda.Function;
 import software.amazon.awscdk.services.lambda.Tracing;
 import software.amazon.awscdk.services.logs.RetentionDays;
 import software.constructs.Construct;
-import java.util.HashMap;
-import java.util.Map;
 
 public class AppStack extends Stack {
 
@@ -53,15 +52,6 @@ public class AppStack extends Stack {
     }
 
     public static String functionPath() {
-        return "../app/build/libs/" + functionFilename();
-    }
-
-    public static String functionFilename() {
-        return MicronautFunctionFile.builder()
-            .graalVMNative(true)
-            .version("0.1")
-            .archiveBaseName("app")
-            .buildTool(BuildTool.GRADLE)
-            .build();
+        return "../app/build/libs/app*zip";
     }
 }
