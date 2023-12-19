@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.micronaut.aws.cdk.function.MicronautFunction;
+import io.micronaut.aws.cdk.function.MicronautFunctionFile;
 import io.micronaut.starter.application.ApplicationType;
+import io.micronaut.starter.options.BuildTool;
 import software.amazon.awscdk.CfnOutput;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Stack;
@@ -51,7 +53,16 @@ public class AppStack extends Stack {
                 .build();
     }
 
-    public static String functionPath() {
-        return "../app/build/libs/app*zip";
+   public static String functionPath() {
+        return "../app/build/libs/" + functionFilename();
+    }
+
+    public static String functionFilename() {
+        return MicronautFunctionFile.builder()
+            .graalVMNative(true)
+            .version("0.1")
+            .archiveBaseName("app")
+            .buildTool(BuildTool.GRADLE)
+            .build();
     }
 }

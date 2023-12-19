@@ -4,7 +4,7 @@ plugins {
     id("com.palantir.git-version") version "3.0.0"
 }
 
-version = gitVersion()
+version = 0.1
 group = "com.example"
 
 repositories {
