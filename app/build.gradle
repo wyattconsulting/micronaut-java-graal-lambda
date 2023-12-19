@@ -2,6 +2,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.2.1"
     id("com.palantir.git-version") version "3.0.0"
+    id("com.gradle.enterprise") version("3.12.2")
 }
 
 version = 0.1
@@ -48,6 +49,12 @@ micronaut {
     }
 }
 
+gradleEnterprise {
+  buildScan {
+    termsOfServiceUrl = "https://gradle.com/terms-of-service"
+    termsOfServiceAgree = "yes"
+  }
+}
 
 tasks.named("dockerfileNative") {
     baseImage = "amazonlinux:2"
