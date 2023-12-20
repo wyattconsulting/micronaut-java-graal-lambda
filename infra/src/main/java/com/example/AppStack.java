@@ -1,12 +1,13 @@
 package com.example;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
 import io.micronaut.aws.cdk.function.MicronautFunction;
-import io.micronaut.aws.cdk.function.MicronautFunctionFile;
 import io.micronaut.starter.application.ApplicationType;
-import io.micronaut.starter.options.BuildTool;
 import software.amazon.awscdk.CfnOutput;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Stack;
@@ -53,16 +54,15 @@ public class AppStack extends Stack {
                 .build();
     }
 
-   public static String functionPath() {
-        return "../app/build/libs/" + functionFilename();
-    }
+    public static String functionPath() {
 
-    public static String functionFilename() {
-        return MicronautFunctionFile.builder()
-            .graalVMNative(true)
-            .version("0.1")
-            .archiveBaseName("app")
-            .buildTool(BuildTool.GRADLE)
-            .build();
+        File dir = new File("../app/build/libs/");
+        File[] files = dir.listFiles((File file, String name) -> {
+            return name.endsWith("lambda.zip");
+        });
+
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified));
+
+        return Arrays.stream(files).findFirst().get().toString();
     }
 }
