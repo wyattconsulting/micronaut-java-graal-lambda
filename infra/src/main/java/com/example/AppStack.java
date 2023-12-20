@@ -24,6 +24,8 @@ import software.constructs.Construct;
 
 public class AppStack extends Stack {
 
+    private final AppStack appStack = this;
+
     public AppStack(final Construct parent, final String id) {
         this(parent, id, null);
     }
@@ -34,7 +36,7 @@ public class AppStack extends Stack {
         Map<String, String> environmentVariables = new HashMap<>();
         Function function = MicronautFunction.create(ApplicationType.FUNCTION,
                 true,
-                this,
+                appStack,
                 "micronaut-function")
                 .handler("com.example.FunctionRequestHandler")
                 .environment(environmentVariables)
@@ -48,7 +50,7 @@ public class AppStack extends Stack {
         FunctionUrl functionUrl = function.addFunctionUrl(FunctionUrlOptions.builder()
                 .authType(FunctionUrlAuthType.NONE)
                 .build());
-        CfnOutput.Builder.create(this, "MnTestApiUrl")
+        CfnOutput.Builder.create(appStack, "MnTestApiUrl")
                 .exportName("MnTestApiUrl")
                 .value(functionUrl.getUrl())
                 .build();
