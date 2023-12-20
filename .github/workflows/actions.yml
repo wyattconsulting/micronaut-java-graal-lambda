@@ -33,16 +33,16 @@ jobs:
       with:
         dependency-graph: generate-and-submit
 
-    - name: Test with Gradle
-      uses: gradle/gradle-build-action@v2
-      with:
-        arguments: :app:test --scan
-      
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v2
       with:
         arguments: :app:buildNativeLambda --scan
 
+    - name: Test with Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: :app:test --scan
+    
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
