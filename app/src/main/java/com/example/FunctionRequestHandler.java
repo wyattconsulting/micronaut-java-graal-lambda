@@ -1,4 +1,5 @@
 package com.example;
+
 import java.io.IOException;
 import java.util.Collections;
 
@@ -8,7 +9,9 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent
 import io.micronaut.function.aws.MicronautRequestHandler;
 import io.micronaut.json.JsonMapper;
 import jakarta.inject.Inject;
+
 public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+
     @Inject
     JsonMapper objectMapper;
 
