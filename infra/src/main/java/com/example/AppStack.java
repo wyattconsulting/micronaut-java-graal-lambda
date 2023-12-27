@@ -59,7 +59,7 @@ public class AppStack extends Stack {
     public static String functionPath() {
 
         File dir = new File("../app/build/libs/");
-        var files = dir.listFiles((File file, String name) -> name.endsWith("*.zip"));
+        var files = dir.listFiles((File file, String name) -> name.endsWith("zip"));
         Arrays.sort(files, Comparator.comparingLong(File::lastModified));
 
         return Arrays.stream(files).findFirst().get().toString();
