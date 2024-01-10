@@ -1,4 +1,4 @@
-[![Build & Deploy Lambda](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/actions.yml/badge.svg)](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/actions.yml)
+[![Build & Deploy Lambda](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/actions.yml/badge.svg)](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/actions.yml) [![CodeQL](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/codeql.yml/badge.svg)](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/codeql.yml)
 
 ## Micronaut 4.2.3 Documentation
 
