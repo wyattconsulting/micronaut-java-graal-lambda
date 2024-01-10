@@ -1,6 +1,0 @@
-{
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "yaml.schemas": {
-        "https://json.schemastore.org/github-workflow.json": "file:///home/sysadmin/projects/micronaut-graal/demo/.github/workflows/deploy.yml"
-    }
-}
