@@ -1,6 +1,6 @@
 [![Build & Deploy Lambda](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/actions.yml/badge.svg)](https://github.com/wyattconsulting/micronaut-graal/actions/workflows/actions.yml)
 
-## Micronaut 4.2.0 Documentation
+## Micronaut 4.2.3 Documentation
 
 - [User Guide](https://docs.micronaut.io/4.2.0/guide/index.html)
 - [API Reference](https://docs.micronaut.io/4.2.0/api/index.html)
