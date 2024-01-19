@@ -62,6 +62,8 @@ cdk destroy
 cd ..
 ```
 
+### Example X-Ray Trace
+![X-Ray Trace](xray-trace.png)
 
 - [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
 - [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
