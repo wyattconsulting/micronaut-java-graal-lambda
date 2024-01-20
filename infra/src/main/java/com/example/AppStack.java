@@ -41,15 +41,17 @@ public class AppStack extends Stack {
                 .handler("com.example.FunctionRequestHandler")
                 .environment(environmentVariables)
                 .code(Code.fromAsset(functionPath()))
-                .timeout(Duration.seconds(10))
+                .timeout(Duration.seconds(1))
                 .memorySize(128)
                 .logRetention(RetentionDays.ONE_WEEK)
                 .tracing(Tracing.ACTIVE)
                 .architecture(Architecture.X86_64)
                 .build();
+                
         FunctionUrl functionUrl = function.addFunctionUrl(FunctionUrlOptions.builder()
                 .authType(FunctionUrlAuthType.NONE)
                 .build());
+
         CfnOutput.Builder.create(appStack, "MnTestApiUrl")
                 .exportName("MnTestApiUrl")
                 .value(functionUrl.getUrl())
