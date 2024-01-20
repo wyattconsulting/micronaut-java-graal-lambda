@@ -34,6 +34,10 @@ public class AppStack extends Stack {
         super(parent, id, props);
 
         Map<String, String> environmentVariables = new HashMap<>();
+
+        environmentVariables.put("AWS_CODEGURU_PROFILER_GROUP_ARN", "arn:aws:codeguru-profiler:us-east-2:468673670728:profilingGroup/micronaut-graal");
+        environmentVariables.put("AWS_CODEGURU_PROFILER_ENABLED", "TRUE");
+        
         Function function = MicronautFunction.create(ApplicationType.FUNCTION,
                 true,
                 appStack,
