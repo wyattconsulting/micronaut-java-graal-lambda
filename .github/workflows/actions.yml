@@ -58,6 +58,26 @@ jobs:
         with:
           name: Lambda
           path: app/build/libs
+      - uses: graalvm/setup-graalvm@v1
+        with:
+            java-version: '17'
+            distribution: 'graalvm-community'
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+  
+      - name: Setup
+        run: |
+            echo "GRAALVM_HOME: $GRAALVM_HOME"
+            echo "JAVA_HOME: $JAVA_HOME"
+            java --version
+            native-image --version
+  
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+  
+      - name: Setup Gradle to generate and submit dependency graphs
+        uses: gradle/gradle-build-action@v2
+        with:
+          dependency-graph: generate-and-submit
 
       - name: CDK Diff
         uses: youyo/aws-cdk-github-actions@v2
@@ -74,20 +94,20 @@ jobs:
         uses: youyo/aws-cdk-github-actions@v2
         with:
           cdk_subcommand: 'synth'
-          cdk_version: '2.122.0'
+          actions_comment: true
           working_dir: 'infra'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-2'
 
-      - name: cdk deploy
+      - name: CDK Deploy
         uses: youyo/aws-cdk-github-actions@v2
         with:
           cdk_subcommand: 'deploy'
           cdk_stack: 'MicronautAppStack'
           cdk_args: '--require-approval never'
-          actions_comment: false
+          actions_comment: true
           working_dir: 'infra'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
