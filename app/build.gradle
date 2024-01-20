@@ -9,14 +9,10 @@ group = "com.example"
 
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://d1osg35nybn3tt.cloudfront.net")
-    }
 }
 
 dependencies {
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    implementation("com.amazonaws:codeguru-profiler-java-agent:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut.aws:micronaut-aws-apigateway")
