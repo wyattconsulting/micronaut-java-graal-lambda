@@ -85,7 +85,7 @@ jobs:
             node-version: 20
             
       - name: CDK Deploy
-        env: # Or as an environment variable
+        env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-2'
@@ -95,4 +95,3 @@ jobs:
             cdk diff
             cdk synth
             cdk deploy --require-approval never
-      
