@@ -83,7 +83,7 @@ jobs:
         with:
             node-version: 20
 
-      - run: npm install aws-cdk
+      - run: npm install -g aws-cdk
       - run: cd infra; cdk diff
       - run: cd infra; cdk synth
       - run: cd infra; cdk deploy --require-approval never
