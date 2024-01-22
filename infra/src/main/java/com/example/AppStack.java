@@ -44,7 +44,6 @@ public class AppStack extends Stack {
                 .code(Code.fromAsset(functionPath()))
                 .timeout(Duration.seconds(1))
                 .memorySize(128)
-                .logRetention(RetentionDays.ONE_WEEK)
                 .tracing(Tracing.ACTIVE)
                 .architecture(Architecture.X86_64)
                 .build();
