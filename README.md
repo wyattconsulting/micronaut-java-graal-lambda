@@ -44,15 +44,13 @@ Handler: com.example.FunctionRequestHandler
 
 The `infra/cdk.json` file tells the CDK Toolkit how to execute your app.
 
-`cd infra`
-`cdk synth` - emits the synthesized CloudFormation template
-`cdk deploy` - deploy this stack to your default AWS account/region
-`cd ..`
-
-Other useful commands:
-
 `cdk diff` - compare deployed stack with current state
-`cdk docs`- open CDK documentation
+
+`cdk synth` - emits the synthesized CloudFormation template
+
+`cdk deploy` - deploy this stack to your default AWS account/region
+
+`cdk docs` - open CDK documentation
 
 ### Cleanup
 
