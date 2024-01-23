@@ -19,7 +19,6 @@ import software.amazon.awscdk.services.lambda.FunctionUrl;
 import software.amazon.awscdk.services.lambda.FunctionUrlAuthType;
 import software.amazon.awscdk.services.lambda.FunctionUrlOptions;
 import software.amazon.awscdk.services.lambda.Tracing;
-import software.amazon.awscdk.services.logs.RetentionDays;
 import software.constructs.Construct;
 
 public class AppStack extends Stack {
