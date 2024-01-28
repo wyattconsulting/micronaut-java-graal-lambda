@@ -2,8 +2,10 @@ package com.example;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.micronaut.aws.cdk.function.MicronautFunction;
@@ -12,6 +14,7 @@ import software.amazon.awscdk.CfnOutput;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
+import software.amazon.awscdk.services.internetmonitor.CfnMonitor;
 import software.amazon.awscdk.services.lambda.Architecture;
 import software.amazon.awscdk.services.lambda.Code;
 import software.amazon.awscdk.services.lambda.Function;
@@ -19,7 +22,8 @@ import software.amazon.awscdk.services.lambda.FunctionUrl;
 import software.amazon.awscdk.services.lambda.FunctionUrlAuthType;
 import software.amazon.awscdk.services.lambda.FunctionUrlOptions;
 import software.amazon.awscdk.services.lambda.Tracing;
-import software.constructs.Construct;
+import software.constructs.Construct; 
+
 
 public class AppStack extends Stack {
 
@@ -55,6 +59,10 @@ public class AppStack extends Stack {
                 .exportName("MnTestApiUrl")
                 .value(functionUrl.getUrl())
                 .build();
+
+        CfnMonitor.Builder.create(this, "MyMonitor")
+            .resourcesToAdd(Collections.singletonList(function.getFunctionArn()))
+            .build();
     }
 
     public static String functionPath() {
