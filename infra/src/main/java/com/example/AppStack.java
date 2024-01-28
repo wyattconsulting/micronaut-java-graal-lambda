@@ -59,10 +59,11 @@ public class AppStack extends Stack {
                 .value(functionUrl.getUrl())
                 .build();
 
-        CfnMonitor.Builder.create(this, "MyMonitor")
-            .resourcesToAdd(Collections.singletonList(function.getFunctionArn()))
-            .build();
-    }
+    //     CfnMonitor.Builder.create(this, "MyMonitor")
+    //         .monitorName("LambdaMonitor")
+    //         .resourcesToAdd(Collections.singletonList(function.getFunctionArn()))
+    //         .build();
+    // }
 
     public static String functionPath() {
 
