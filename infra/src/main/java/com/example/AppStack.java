@@ -2,7 +2,6 @@ package com.example;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +12,6 @@ import software.amazon.awscdk.CfnOutput;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
-import software.amazon.awscdk.services.internetmonitor.CfnMonitor;
 import software.amazon.awscdk.services.lambda.Architecture;
 import software.amazon.awscdk.services.lambda.Code;
 import software.amazon.awscdk.services.lambda.Function;
@@ -58,6 +56,7 @@ public class AppStack extends Stack {
                 .exportName("MnTestApiUrl")
                 .value(functionUrl.getUrl())
                 .build();
+    }
 
     //     CfnMonitor.Builder.create(this, "MyMonitor")
     //         .monitorName("LambdaMonitor")
