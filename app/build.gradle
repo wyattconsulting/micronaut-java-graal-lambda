@@ -58,7 +58,7 @@ tasks.named("dockerfileNative") {
 }
 
 dockerBuildNative {
-    images = ["wyattconsulting/micronaut-graal:latest"]
+    images = ["wyattconsulting/micronaut-java-graal-lambda:latest"]
 }
 
 
