@@ -49,7 +49,7 @@ micronaut {
 }
 
 tasks.named("dockerfileNative") {
-    baseImage = "amazonlinux:2.0.20240109.0"
+    baseImage = "amazonlinux:2.0.20240131.0"
     args(
         "-XX:MaximumHeapSizePercent=80",
         "-Dio.netty.allocator.numDirectArenas=0",
