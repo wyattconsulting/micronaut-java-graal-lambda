@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4.1.1
     - uses: graalvm/setup-graalvm@v1
       with:
         java-version: '17'
@@ -26,25 +26,25 @@ jobs:
         native-image --version
 
     - name: Validate Gradle wrapper
-      uses: gradle/wrapper-validation-action@v1
+      uses: gradle/wrapper-validation-action@v2.0.0
 
     - name: Setup Gradle to generate and submit dependency graphs
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3.0.0
       with:
         dependency-graph: generate-and-submit
 
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3.0.0
       with:
         arguments: :app:buildNativeLambda --scan
 
     - name: Test with Gradle
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3.0.0
       with:
         arguments: :app:test --scan
     
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.3.0
       with:
         name: Lambda
         path: app/build/libs
@@ -53,8 +53,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: Build
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/download-artifact@v4.1.1
         with:
           name: Lambda
           path: app/build/libs
@@ -72,15 +72,15 @@ jobs:
           native-image --version
   
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
+        uses: gradle/wrapper-validation-action@v2.0.0
   
       - name: Setup Gradle to generate and submit dependency graphs
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3.0.0
         with:
           dependency-graph: generate-and-submit
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.0.1
         with:
           node-version: 20
             
