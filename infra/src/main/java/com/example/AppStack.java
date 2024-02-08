@@ -18,6 +18,7 @@ import software.amazon.awscdk.services.lambda.Function;
 import software.amazon.awscdk.services.lambda.FunctionUrl;
 import software.amazon.awscdk.services.lambda.FunctionUrlAuthType;
 import software.amazon.awscdk.services.lambda.FunctionUrlOptions;
+import software.amazon.awscdk.services.lambda.LambdaInsightsVersion;
 import software.amazon.awscdk.services.lambda.Tracing;
 import software.constructs.Construct; 
 
@@ -25,6 +26,8 @@ import software.constructs.Construct;
 public class AppStack extends Stack {
 
     private final AppStack appStack = this;
+    private static final String
+    ARN_AWS_LAMBDA_US_EAST_2 = "arn:aws:lambda:us-east-2:580247275435:layer:LambdaInsightsExtension-Arm64:14";
 
     public AppStack(final Construct parent, final String id) {
         this(parent, id, null);
@@ -45,7 +48,8 @@ public class AppStack extends Stack {
                 .timeout(Duration.seconds(1))
                 .memorySize(128)
                 .tracing(Tracing.ACTIVE)
-                .architecture(Architecture.X86_64)
+                .insightsVersion(LambdaInsightsVersion.fromInsightVersionArn(ARN_AWS_LAMBDA_US_EAST_2))
+                .architecture(Architecture.ARM_64)
                 .build();
                 
         FunctionUrl functionUrl = function.addFunctionUrl(FunctionUrlOptions.builder()
