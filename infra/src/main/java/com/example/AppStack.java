@@ -18,6 +18,7 @@ import software.amazon.awscdk.services.lambda.Function;
 import software.amazon.awscdk.services.lambda.FunctionUrl;
 import software.amazon.awscdk.services.lambda.FunctionUrlAuthType;
 import software.amazon.awscdk.services.lambda.FunctionUrlOptions;
+import software.amazon.awscdk.services.lambda.LambdaInsightsVersion;
 import software.amazon.awscdk.services.lambda.Tracing;
 import software.constructs.Construct; 
 
@@ -45,6 +46,7 @@ public class AppStack extends Stack {
                 .timeout(Duration.seconds(1))
                 .memorySize(128)
                 .tracing(Tracing.ACTIVE)
+                .insightsVersion(LambdaInsightsVersion.VERSION_1_0_229_0)
                 .architecture(Architecture.X86_64)
                 .build();
                 
