@@ -1,0 +1,53 @@
+name: Deploy Lambda
+
+on: [pull_request]
+
+permissions:
+  contents: write
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/download-artifact@v4.1.1
+        with:
+          name: Lambda
+          path: app/build/libs
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '17'
+          distribution: 'graalvm-community'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+    
+      - name: Setup
+        run: |
+          echo "GRAALVM_HOME: $GRAALVM_HOME"
+          echo "JAVA_HOME: $JAVA_HOME"
+          java --version
+          native-image --version
+  
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v2.0.0
+  
+      - name: Setup Gradle to generate and submit dependency graphs
+        uses: gradle/gradle-build-action@v3.0.0
+        with:
+          dependency-graph: generate-and-submit
+
+      - name: Setup Node
+        uses: actions/setup-node@v4.0.1
+        with:
+          node-version: 20
+            
+      - name: CDK Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-2'
+        run: |
+          npm install -g aws-cdk
+          cd infra 
+          cdk diff
+          cdk synth --quiet true
+          cdk deploy --require-approval never
