@@ -10,7 +10,7 @@ repositories {
 dependencies {
 
 
-    implementation("io.micronaut.starter:micronaut-starter-aws-cdk:4.4.3") {
+    implementation("io.micronaut.starter:micronaut-starter-aws-cdk:4.6.2") {
       exclude(group: "software.amazon.awscdk", module: "aws-cdk-lib")
     }
 
