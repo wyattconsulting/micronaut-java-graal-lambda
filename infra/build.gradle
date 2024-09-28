@@ -18,7 +18,7 @@ dependencies {
 
     testImplementation platform("io.micronaut.platform:micronaut-platform:4.4.3")
 
-    implementation("software.amazon.awscdk:aws-cdk-lib:2.144.0")
+    implementation("software.amazon.awscdk:aws-cdk-lib:2.160.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("org.junit.jupiter:junit-jupiter-engine")
