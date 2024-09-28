@@ -8,10 +8,13 @@ repositories {
 }
 
 dependencies {
-    implementation platform("io.micronaut.platform:micronaut-platform:4.4.3")
-    implementation("io.micronaut.starter:micronaut-starter-aws-cdk:4.3.4") {
+
+
+    implementation("io.micronaut.starter:micronaut-starter-aws-cdk:4.4.3") {
       exclude(group: "software.amazon.awscdk", module: "aws-cdk-lib")
     }
+
+    implementation platform("io.micronaut.platform:micronaut-platform:4.4.3")
 
     testImplementation platform("io.micronaut.platform:micronaut-platform:4.4.3")
 
