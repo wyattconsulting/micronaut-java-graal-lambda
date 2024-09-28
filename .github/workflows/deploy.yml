@@ -9,8 +9,8 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@4.2.0
-      - uses: actions/download-artifact@v4.1.8
+      - uses: actions/checkout@4
+      - uses: actions/download-artifact@v4
         with:
           name: Lambda
           path: app/build/libs
@@ -30,15 +30,15 @@ jobs:
           native-image --version
   
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v3.5.0
+        uses: gradle/wrapper-validation-action@v3
   
       - name: Setup Gradle to generate and submit dependency graphs
-        uses: gradle/gradle-build-action@v3.5.0
+        uses: gradle/gradle-build-action@v3
         with:
           dependency-graph: generate-and-submit
 
       - name: Setup Node
-        uses: actions/setup-node@v4.0.4
+        uses: actions/setup-node@v4
         with:
           node-version: 20
             
