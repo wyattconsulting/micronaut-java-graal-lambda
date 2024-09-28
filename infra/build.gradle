@@ -14,9 +14,9 @@ dependencies {
       exclude(group: "software.amazon.awscdk", module: "aws-cdk-lib")
     }
 
-    implementation platform("io.micronaut.platform:micronaut-platform:4.4.3")
+    implementation platform("io.micronaut.platform:micronaut-platform:4.6.2")
 
-    testImplementation platform("io.micronaut.platform:micronaut-platform:4.4.3")
+    testImplementation platform("io.micronaut.platform:micronaut-platform:4.6.2")
 
     implementation("software.amazon.awscdk:aws-cdk-lib:2.160.0")
 
